@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mneri <mneri@student.42.fr>                +#+  +:+       +#+        */
+/*   By: teo <teo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:34:55 by mneri             #+#    #+#             */
-/*   Updated: 2024/01/08 17:11:27 by mneri            ###   ########.fr       */
+/*   Updated: 2024/01/09 13:45:40 by teo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,15 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
         else if (grade > 150)
             throw Bureaucrat::GradeTooLowException();
     }
-	catch(const std::exception &e)
+	catch(Bureaucrat::GradeTooHighException &e)
 	{
 		std::cerr << e.what() << std::endl;
+		this->setGrade(1);
+	}
+	catch(Bureaucrat::GradeTooLowException &e)
+	{
+		std::cerr << e.what() << std::endl;
+		this->setGrade(150);
 	}
 }
 
@@ -56,32 +62,39 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 	return *this;
 }
 
+void Bureaucrat::setGrade(int num)
+{
+	this->_grade = num;
+}
+
 void Bureaucrat::incGrade(int num)
 {
 	try
 	{
-		if(this->_grade - num < 0)
+		this->_grade -= num;
+		if(this->_grade < 1)
             throw Bureaucrat::GradeTooHighException();
 	}
-	catch(const std::exception& e)
+	catch(Bureaucrat::GradeTooHighException& e)
 	{
 		std::cerr << e.what() << '\n';
+		this->_grade = 1;
 	}
-	this->_grade -= num;
 }
 
 void Bureaucrat::decGrade(int num)
 {
 	try
 	{
-		if(this->_grade + num > 150)
+		this->_grade += num;
+		if(this->_grade > 150)
             throw Bureaucrat::GradeTooLowException();
 	}
-	catch(const std::exception& e)
+	catch(Bureaucrat::GradeTooLowException& e)
 	{
 		std::cerr << e.what() << '\n';
+		this->_grade = 150;
 	}
-	this->_grade += num;
 }
 
 
