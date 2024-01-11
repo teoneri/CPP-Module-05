@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teo <teo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mneri <mneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:34:55 by mneri             #+#    #+#             */
-/*   Updated: 2024/01/09 14:34:09 by teo              ###   ########.fr       */
+/*   Updated: 2024/01/11 16:59:10 by mneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
@@ -32,6 +33,9 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 		this->setGrade(150);
 	}
 }
+
+Bureaucrat::Bureaucrat() : _name("N/A"), _grade(150)
+{}
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other.getName())
 {
@@ -97,6 +101,11 @@ void Bureaucrat::decGrade(int num)
 	}
 }
 
+
+void Bureaucrat::signForm(Form &form)
+{
+	form.beSigned(*this);
+}
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
 {

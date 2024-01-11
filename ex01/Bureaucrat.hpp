@@ -3,15 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teo <teo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mneri <mneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:34:57 by mneri             #+#    #+#             */
-/*   Updated: 2024/01/09 14:04:23 by teo              ###   ########.fr       */
+/*   Updated: 2024/01/11 17:16:56 by mneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -36,6 +40,7 @@ class Bureaucrat
 				}
 		};
 		Bureaucrat(std::string name, int grade);
+		Bureaucrat();
 		Bureaucrat(const Bureaucrat &other);
 		~Bureaucrat();
 		void	incGrade(int num);
@@ -43,6 +48,7 @@ class Bureaucrat
 		void setGrade(int num);
 		const std::string getName() const;
 		int getGrade() const;
+		void signForm(Form &Form);
 		Bureaucrat &operator=(const Bureaucrat &other);
 };
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
