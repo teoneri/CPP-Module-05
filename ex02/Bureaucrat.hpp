@@ -6,12 +6,16 @@
 /*   By: mneri <mneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:34:57 by mneri             #+#    #+#             */
-/*   Updated: 2024/01/12 16:23:13 by mneri            ###   ########.fr       */
+/*   Updated: 2024/01/12 15:40:35 by mneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 
 #include <iostream>
+#include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -35,8 +39,8 @@ class Bureaucrat
 					return "GradeTooLowException";
 				}
 		};
-		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
+		Bureaucrat();
 		Bureaucrat(const Bureaucrat &other);
 		~Bureaucrat();
 		void	incGrade(int num);
@@ -44,6 +48,7 @@ class Bureaucrat
 		void setGrade(int num);
 		const std::string getName() const;
 		int getGrade() const;
+		void signForm(AForm &Form);
 		Bureaucrat &operator=(const Bureaucrat &other);
 };
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);

@@ -5,35 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mneri <mneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 15:56:25 by mneri             #+#    #+#             */
-/*   Updated: 2024/01/12 15:18:55 by mneri            ###   ########.fr       */
+/*   Created: 2024/01/12 15:20:40 by mneri             #+#    #+#             */
+/*   Updated: 2024/01/12 17:48:51 by mneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
-int main(void)
+int main()
 {
-	// Bureaucrat *employee = new Bureaucrat("employee", 140);
-	Bureaucrat *ceo = new Bureaucrat("CEO", 1);
-	Form *form = new Form("Private Policy", 20, 20);
-	// Form *form2 = new Form(*form);
-	Form *form2 = new Form("Public Policy", 150, 150);
-	// form2 = form;
-	std::cout << *ceo;
-	std::cout << *form;
-	std::cout << *form2;
+	Bureaucrat *ceo = new Bureaucrat("Ceo", 150);
+	ShrubberyCreationForm *SRform = new ShrubberyCreationForm("home");
+	
 	try
 	{
-		// form->beSigned(*employee);
-		// form->beSigned(*ceo);
-		// employee->signForm(*form);
-		ceo->signForm(*form);
+		SRform->beSigned(*ceo);
+		SRform->execute(*ceo);
 	}
-	catch(const Form::GradeTooLowException &e)
+	catch(AForm::GradeTooLowException &e)
 	{
-		std::cout << "Form could not be signed" << std::endl;
+		std::cout << "could not execute" << std::endl;
 	}
-	
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mneri <mneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:48:57 by teo               #+#    #+#             */
-/*   Updated: 2024/01/12 16:59:57 by mneri            ###   ########.fr       */
+/*   Updated: 2024/01/12 17:29:56 by mneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
-    protected:
+    private:
         const std::string _name;
         bool _sign;
         const int _sign_grade;
@@ -35,16 +35,17 @@ class Form
 			public:
 				const char* what() const throw();
 		};
-		Form();
-        Form(std::string name, int sign_grade, int exe_grade);
-        Form(const Form &other);
-        ~Form();
+		AForm();
+        AForm(std::string name, int sign_grade, int exe_grade);
+        AForm(const AForm &other);
+        ~AForm();
         int getSigGrade() const;
         bool getSign() const;
         int getExeGrade() const;
         std::string getName() const;
 		void beSigned(Bureaucrat &bureau);
+		virtual void execute(Bureaucrat const & executor) const = 0;
 		void	setSign(bool var);
-		Form &operator=(const Form &other);
+		AForm &operator=(const AForm &other);
 };
-std::ostream &operator<<(std::ostream &out, const Form &form);
+std::ostream &operator<<(std::ostream &out, const AForm &form);
