@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mneri <mneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 15:32:00 by mneri             #+#    #+#             */
-/*   Updated: 2024/01/15 16:35:27 by mneri            ###   ########.fr       */
+/*   Created: 2024/01/15 16:53:56 by mneri             #+#    #+#             */
+/*   Updated: 2024/01/15 17:35:09 by mneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
-#include <cstdlib>
-#include <ctime>
-class RobotomyRequestForm : public AForm
-{
-	private:
-		std::string _target;
-	public:
-		RobotomyRequestForm(std::string target);
-        RobotomyRequestForm (const RobotomyRequestForm &other);
-		virtual void execute(Bureaucrat const & executor) const;
-		RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
 
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+
+class Intern
+{
+	public:
+	Intern();
+	Intern(const Intern &other);
+	~Intern();
+	AForm *makeForm(std::string formName, std::string formTarg);
+	
 };

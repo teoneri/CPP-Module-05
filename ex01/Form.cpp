@@ -6,7 +6,7 @@
 /*   By: mneri <mneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:49:05 by teo               #+#    #+#             */
-/*   Updated: 2024/01/12 15:58:48 by mneri            ###   ########.fr       */
+/*   Updated: 2024/01/16 14:34:27 by mneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void Form::beSigned(Bureaucrat &bureau)
 
 std::ostream &operator<<(std::ostream &out, const Form &form)
 {
-	out << form.getName() << ", form name " << "sign status: " << form.getSign() << ", sign grade: " << 
+	out <<  "form name: " << form.getName()  << " sign status: " << form.getSign() << ", sign grade: " << 
 		form.getSigGrade() << ", exe grade: " << form.getExeGrade() << std::endl;
 	return out;
 }

@@ -7,7 +7,7 @@
 #                                     CONFIG                                   #
 ################################################################################
 
-NAME        := Forms
+NAME        := Intern
 CC         := c++
 FLAGS    := -Wall -Wextra -Werror -std=c++98 -g
  
@@ -15,13 +15,14 @@ FLAGS    := -Wall -Wextra -Werror -std=c++98 -g
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=      ShrubberyCreationForm.cpp \
-					RobotomyRequestForm.cpp \
-					PresidentialPardonForm.cpp \
+SRCS        :=      Intern.cpp \
                           AForm.cpp \
+                          Bureaucrat.cpp \
                           main.cpp \
-                        Bureaucrat.cpp \
-
+                          RobotomyRequestForm.cpp \
+                          PresidentialPardonForm.cpp \
+                          ShrubberyCreationForm.cpp \
+                          
 OBJS        := ${SRCS:.cpp=.o}
 
 .cpp.o:
@@ -63,12 +64,13 @@ re:			fclean all
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=      ShrubberyCreationForm.cpp \
-						RobotomyRequestForm.cpp \
-						PresidentialPardonForm.cpp \
+SRCS        :=      Intern.cpp \
                           AForm.cpp \
                           Bureaucrat.cpp \
                           main.cpp \
+                          RobotomyRequestForm.cpp \
+                          PresidentialPardonForm.cpp \
+                          ShrubberyCreationForm.cpp \
                           
 OBJS        := ${SRCS:.cpp=.o}
 
